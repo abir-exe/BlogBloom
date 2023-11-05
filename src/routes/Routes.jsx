@@ -7,6 +7,8 @@ import FeaturedBlogs from "../pages/FeaturedBlogs/FeaturedBlogs";
 import Wishlist from "../pages/Wishlist/Wishlist";
 import ErrorPage from "../pages/Error/ErrorPage";
 import Registration from "../pages/Registration/Registration";
+import Login from "../pages/Login/Login";
+import PrivateRoute from "./PrivateRoute";
 
 
 const router = createBrowserRouter([
@@ -33,11 +35,15 @@ const router = createBrowserRouter([
         },
         {
           path: '/wishlist',
-          element: <Wishlist></Wishlist>
+          element: <PrivateRoute><Wishlist></Wishlist></PrivateRoute>
         },
         {
           path: '/register',
           element: <Registration></Registration>
+        },
+        {
+          path: '/login',
+          element: <Login></Login>
         }
 
       ]
