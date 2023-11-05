@@ -8,15 +8,20 @@ const Navbar = () => {
 
     const { user, logOut } = useContext(AuthContext);
 
+    
+
     const handleSignOut = () => {
         logOut().then(
           Swal.fire(
-            'Logout Seccessfull',
+            'Logout Successful',
             'Successfully added',
             'success'
           )
         ).catch();
       };
+
+      console.log(user?.displayName)
+
 
     const NavItems = <>
         <li><Link to="/">Home</Link></li>
@@ -48,7 +53,7 @@ const Navbar = () => {
     <div>
     {user && (
                 <div className="flex flex-col lg:flex-row  items-center justify-center gap-2 mr-2 text-white">
-                  <h3>User: {user.displayName}</h3>
+                  <h3 className="text-black">User: {user.displayName}</h3>
                   <div className="avatar">
                     <div className="w-12 rounded-full">
                       <img src={user.photoURL} />
