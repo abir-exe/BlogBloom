@@ -5,7 +5,7 @@ const Recent = () => {
         <div>
           <h2 className="text-4xl text-center mb-10">Recent Blogs</h2>
         </div>
-        <div className="grid grid-cols-3 gap-10 mb-5 px-10">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 mb-5 px-10">
             {/* <--card--> */}
           <div className="card h-96 bg-base-100 shadow-xl">
             <figure>
