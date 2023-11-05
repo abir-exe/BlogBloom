@@ -1,33 +1,20 @@
-import img1 from "../../assets/images/banner/1.jpg"
-import img2 from "../../assets/images/banner/2.jpg"
-import img3 from "../../assets/images/banner/3.jpg"
-import img4 from "../../assets/images/banner/4.jpg"
+
 
 const Banner = () => {
-    return (
-        <div>
-            <div className="carousel w-full h-[80vh]">
-  <div id="item1" className="carousel-item w-full">
-    <img src={img1} className="w-full" />
-  </div> 
-  <div id="item2" className="carousel-item w-full">
-    <img src={img2} className="w-full" />
-  </div> 
-  <div id="item3" className="carousel-item w-full">
-    <img src={img3} className="w-full" />
-  </div> 
-  <div id="item4" className="carousel-item w-full">
-    <img src={img4} className="w-full" />
+  return (
+    <div>
+      <div className="hero min-h-screen" style={{backgroundImage: 'url(https://i.ibb.co/DM95sq5/3.jpg)'}}>
+  <div className="hero-overlay"></div>
+  <div className="hero-content  text-neutral-content">
+    <div className="max-w-full text-right ml-56">
+      <h1 className="mb-5 text-5xl font-bold">Discover the <br /><span className="text-[#fbbd2f]">World Through Words</span> </h1>
+      <p className="mb-5">Immerse yourself in a world of stories, ideas, and inspiration. <br /> Our blog is your gateway to a universe of knowledge, creativity, and exploration. <br /> Join us on a journey through the written word and be inspired to share your own unique voice with the world.</p>
+      <button className="btn btn-outline btn-warning">Get Started</button>
+    </div>
   </div>
-</div> 
-<div className="flex justify-center w-full py-2 gap-2">
-  <a href="#item1" className="btn btn-xs">1</a> 
-  <a href="#item2" className="btn btn-xs">2</a> 
-  <a href="#item3" className="btn btn-xs">3</a> 
-  <a href="#item4" className="btn btn-xs">4</a>
 </div>
-        </div>
-    );
+    </div>
+  );
 };
 
 export default Banner;

@@ -1,4 +1,5 @@
 import Banner from "./Banner";
+import ContactUs from "./ContactUs";
 import NewsLetter from "./NewsLetter";
 import Recent from "./Recent";
 
@@ -9,6 +10,7 @@ const Home = () => {
         <div className="space-y-10">
             <Banner></Banner>
             <Recent></Recent>
+            <ContactUs></ContactUs>
             <NewsLetter></NewsLetter>
         </div>
     );
