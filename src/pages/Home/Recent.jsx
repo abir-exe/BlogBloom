@@ -3,7 +3,7 @@ const Recent = () => {
     <div>
       <div>
         <div>
-          <h2 className="text-4xl text-center">Recent Blogs</h2>
+          <h2 className="text-4xl text-center mb-10">Recent Blogs</h2>
         </div>
         <div className="grid grid-cols-3 gap-10 mb-5">
             {/* <--card--> */}
