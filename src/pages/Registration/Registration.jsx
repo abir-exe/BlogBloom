@@ -20,9 +20,7 @@ const Registration = () => {
     const form = new FormData(e.currentTarget);
     const email = form.get("email");
     const password = form.get("password");
-    const name = form.get("displayName");
-    const photo = form.get("photo");
-    console.log(email, password, name, photo);
+    console.log(email, password);
     setRegisterError("");
     setSuccess("");
 
@@ -110,7 +108,7 @@ const Registration = () => {
           </div>
 
           {registerError && <p className="text-red-600"> {registerError} </p>}
-          {success && <p className="text-green-600">Registration Successful</p>}
+          {success && <p className="text-green-600">Registration Successful</p>} 
 
           <div className="form-control mt-6">
             <button className="btn btn-primary">Register</button>
