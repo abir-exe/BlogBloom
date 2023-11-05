@@ -6,6 +6,7 @@ import AllBlogs from "../pages/AllBlogs/AllBlogs";
 import FeaturedBlogs from "../pages/FeaturedBlogs/FeaturedBlogs";
 import Wishlist from "../pages/Wishlist/Wishlist";
 import ErrorPage from "../pages/Error/ErrorPage";
+import Registration from "../pages/Registration/Registration";
 
 
 const router = createBrowserRouter([
@@ -33,6 +34,10 @@ const router = createBrowserRouter([
         {
           path: '/wishlist',
           element: <Wishlist></Wishlist>
+        },
+        {
+          path: '/register',
+          element: <Registration></Registration>
         }
 
       ]
