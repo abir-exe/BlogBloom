@@ -7,12 +7,15 @@ const Header = () => {
     return (
         <div className='flex justify-between  pt-1 items-center'>
             {/* temp and time here  */}
-            <div className=''>
+            <div className='text-sm font-semibold'>
             {/* {moment().format("h : mmA ")} || */}
             {moment().format(" dddd, MMMM D, YYYY")}
             </div>
             {/* social icons here  */}
             <div className='flex gap-2'>
+                <div>
+                
+                </div>
             <BiLogoFacebook className='hover:cursor-pointer'></BiLogoFacebook>
             <AiOutlineInstagram className='hover:cursor-pointer'></AiOutlineInstagram>
             <AiOutlineTwitter className='hover:cursor-pointer'></AiOutlineTwitter>

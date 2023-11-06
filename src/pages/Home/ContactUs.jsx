@@ -2,10 +2,10 @@ const ContactUs = () => {
   
 
   return (
-    <div id="cus" className="bg-slate-100 rounded-xl py-10">
-      <section id="cu" className="mt-12 px-5">
+    <div id="" className="bg-base-100 shadow-xl rounded-xl py-10 ">
+      <section id="cu" className="mt-12 px-10">
         <div className="text-4xl text-center mb-10">
-          Contact Us
+          CONTACT US
         </div>
 
         {/* <!-- input Fields  --> */}
@@ -84,7 +84,7 @@ const ContactUs = () => {
             </label>
             <textarea name="Message"
               type="text"
-              placeholder="your message(maximum limit = 2000 words)" className="textarea textarea-bordered textarea-lg w-full max-w-full" maxLength={2000}
+              placeholder="your message" className="textarea textarea-bordered textarea-lg w-full max-w-full" maxLength={2000}
           
               required ></textarea>
             <label className="label">
@@ -92,7 +92,7 @@ const ContactUs = () => {
               <span className="label-text-alt"></span>
             </label>
           </div>
-          <button className="bg-blue-100 font-semibold text-xl px-32 rounded-lg py-3 hover:text-white hover:bg-blue-300 mb-12">
+          <button className="  btn btn-outline px-24">
             Send
           </button>
         </form>
