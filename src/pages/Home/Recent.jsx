@@ -6,7 +6,7 @@ const Recent = () => {
   const [blogs, setBlogs] = useState([]);
 
     useEffect(() => {
-        fetch('http://localhost:5000/allblogs')
+        fetch('http://localhost:5000/recentblogs')
         .then(res => res.json())
         .then(data => setBlogs(data))
     }, [])

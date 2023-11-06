@@ -1,6 +1,6 @@
 /* eslint-disable react/prop-types */
 const RecentCard = ({ blog }) => {
-  const { _id, title, category } = blog;
+  const {  title, category } = blog;
 
   return (
     <div>
