@@ -15,10 +15,22 @@ const RecentCard = ({ blog }) => {
       opacity: 0.8,
     },
   };
+  const divVariants = {
+    rest: {
+      scale: 1,
+      opacity: 1,
+    },
+    hover: {
+      scale: 1.1,
+      opacity: 1,
+    },
+  };
 
   return (
     <div>
-      <motion.div className="card h-96 bg-base-100 shadow-xl">
+      <motion.div variants={divVariants}
+              initial="rest"
+              whileHover="hover" className="card h-96 bg-base-100 shadow-xl">
         <figure>
           <img src="https://i.ibb.co/hBw19FZ/s5.jpg" alt="Shoes" />
         </figure>
