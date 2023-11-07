@@ -1,14 +1,22 @@
+
+import { useState } from "react";
+import toast from "react-hot-toast";
+
 const NewsLetter = () => {
 
+  const [rotate, setRotate] = useState(false);
+
     const handleSubmit = () => {
-        alert("Thanks for Subscribing to our newsletter")
+      toast.success('Successfully toasted!')
+        setRotate(!rotate);
+        
     }
 
   return (
     <div className="flex justify-between items-center shadow-md rounded-xl py-10 px-5">
-      <div className="w-1/2">
+      < div  className="w-1/2">
         <img className="rounded-xl" src="https://plus.unsplash.com/premium_photo-1682310468892-5d8ade38f606?q=80&w=1512&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="" />
-      </div>
+      </div> 
       <div className="w-1/2 my-20">
         <div className="text-center">
           <h2 className="text-4xl text-left font-extrabold px-5 ml-10">FINDING THE PERFECT TRAILS TO HIKE  IS EASY WITH <span className="text-[#d05c71]">NEWSLETTER</span></h2>
