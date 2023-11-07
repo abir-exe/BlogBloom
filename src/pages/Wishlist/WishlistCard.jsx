@@ -2,9 +2,13 @@
 
 
 // eslint-disable-next-line react/prop-types
-const WishlistCard = ({wishlistBlog}) => {
-
+const WishlistCard = ({wishlistBlog, handleDelete}) => {
     const {_id, title, category, image, short_description, details } = wishlistBlog;
+
+    
+
+
+
     return (
         <tr>
         <th>
@@ -19,11 +23,13 @@ const WishlistCard = ({wishlistBlog}) => {
                 <img src={image} alt="Avatar Tailwind CSS Component" />
               </div>
             </div>
-            <div>
-              <div className="font-bold">{title}</div>
-              <div className="text-sm opacity-50">{category}</div>
-            </div>
           </div>
+        </td>
+        <td>
+        <div>
+              <div className="font-bold">{title}</div>
+              <div className="text-sm opacity-50">Category: {category}</div>
+            </div>
         </td>
         <td>
           {short_description}
@@ -31,7 +37,7 @@ const WishlistCard = ({wishlistBlog}) => {
         <td>{details}</td>
         <th className="  space-x-2">
           <button className="btn btn-outline btn-xs">Details</button>
-          <button className="btn btn-outline btn-xs">Remove</button>
+          <button onClick={() => handleDelete(_id)} className="btn btn-outline btn-xs">Remove</button>
         </th>
       </tr>
     );

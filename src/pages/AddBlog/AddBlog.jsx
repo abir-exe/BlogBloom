@@ -61,8 +61,8 @@ const AddBlog = () => {
                 required
               />
             </div>
-            <div className="flex justify-between gap-5">
-            <div className="form-control w-1/2 ">
+            <div className="flex flex-col md:flex-row justify-between gap-5">
+            <div className="form-control md:w-1/2 ">
               {/* categories */}
               <label className="label">
               <label className="label-text">Choose a category:</label>
@@ -76,7 +76,7 @@ const AddBlog = () => {
                 <option value="food">Food</option>
               </select>
             </div>
-            <div className="form-control w-1/2 ">
+            <div className="form-control md:w-1/2 ">
               {/* date */}
               <label className="label">
               <label className="label-text">Date:</label>

@@ -15,10 +15,28 @@ const Wishlist = () => {
         .then(data => setWishlistBlogs(data))
     }, [])
 
+    const handleDelete = id => {
+        const proceed = confirm('Are you sure you want to delete?');
+        if(proceed) {
+            fetch(`http://localhost:5000/wishlist/${id}`, {
+                method: 'DELETE'
+            })
+            .then(res => res.json())
+            .then(data => {
+                console.log(data);
+                if(data.deletedCount>0){
+                    alert('deleted successfully');
+                    const remaining = wishlistBlogs.filter(wishlistBlogs => wishlistBlogs._id !== id)
+                    setWishlistBlogs(remaining);
+                }
+            })
+        }
+    }
+
     return (
         <div>
-            Wishlist: {wishlistBlogs.length}
-            <div>
+            
+            <div className="my-10 min-h-screen">
             <div className="overflow-x-auto">
   <table className="table">
     {/* head */}
@@ -29,16 +47,16 @@ const Wishlist = () => {
             <input type="checkbox" className="checkbox" />
           </label>
         </th>
-        <th>Name</th>
-        <th>Job</th>
-        <th>Favorite Color</th>
-        <th></th>
+        <th>Image</th>
+        <th>Title</th>
+        <th>Short Description</th>
+        <th>Details</th>
       </tr>
     </thead>
     <tbody>
       {/* row 1 */}
       {
-        wishlistBlogs.map(wishlistBlog => <WishlistCard key={wishlistBlog._id} wishlistBlog={wishlistBlog}></WishlistCard>)
+        wishlistBlogs.map(wishlistBlog => <WishlistCard key={wishlistBlog._id} wishlistBlog={wishlistBlog} handleDelete={handleDelete}></WishlistCard>)
       }
     </tbody>
     
