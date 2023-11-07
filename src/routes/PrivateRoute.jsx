@@ -2,6 +2,7 @@
 import { useContext } from "react";
 import { Navigate, useLocation } from "react-router-dom";
 import { AuthContext } from "../Providers/AuthProvider";
+import Skeleton, { SkeletonTheme } from "react-loading-skeleton";
 
 const PrivateRoute = ({ children }) => {
   const { user, loading } = useContext(AuthContext);
@@ -9,7 +10,11 @@ const PrivateRoute = ({ children }) => {
     console.log(location.pathname);
 
   if(loading){
-    return <span className="loading loading-bars loading-lg"></span>
+    return <SkeletonTheme>
+    <p>
+      <Skeleton count={10} height={10}/>
+    </p>
+  </SkeletonTheme>
 }
 
   if (user) {
