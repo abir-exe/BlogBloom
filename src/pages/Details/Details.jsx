@@ -1,6 +1,10 @@
+import { useContext } from "react";
 import { useLoaderData } from "react-router-dom";
+import { AuthContext } from "../../Providers/AuthProvider";
 
 const Details = () => {
+  const { user } = useContext(AuthContext);
+
   const handleComment = async (e) => {
     e.preventDefault();
 
@@ -11,13 +15,30 @@ const Details = () => {
     const comment = form.comment.value;
 
     const commentData = {
-      blog: _id,
+      writer_name: user?.displayName,
+      writer_image: user?.photoURL,
+      blog_id: _id,
+      blog: title,
       name,
       email,
       image,
       comment,
     };
     console.log(commentData);
+
+    fetch('http://localhost:5000/comments', {
+        method: "POST",
+        headers: {
+          "content-Type": "application/json",
+        },
+        body: JSON.stringify(commentData),
+      })
+    .then(res => res.json())
+    .then(data => {
+        console.log(data);
+    })
+
+
   };
 
   const blogDetails = useLoaderData();
