@@ -2,6 +2,8 @@
 // import { AuthContext } from "../../Providers/AuthProvider";
 
 import { PhotoProvider, PhotoView } from "react-photo-view";
+import 'react-photo-view/dist/react-photo-view.css';
+
 
 /* eslint-disable react/prop-types */
 const AllBlogsCard = ({ allBlog }) => {
@@ -40,7 +42,7 @@ const AllBlogsCard = ({ allBlog }) => {
           <PhotoProvider>
         <div className="card h-96 bg-base-100 shadow-xl">
           <figure>
-          <PhotoView>
+          <PhotoView src="https://i.ibb.co/hBw19FZ/s5.jpg">
             <img src="https://i.ibb.co/hBw19FZ/s5.jpg" alt="Shoes" />
             </PhotoView>
           </figure>
