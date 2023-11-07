@@ -1,4 +1,8 @@
+import { useContext } from "react";
+import { AuthContext } from "../../Providers/AuthProvider";
+
 const AddBlog = () => {
+  const { user } = useContext(AuthContext);
 
     const handleAddBlog = async (e) => {
         e.preventDefault();
@@ -13,6 +17,7 @@ const AddBlog = () => {
         
     
         const blogData = {
+          email: user?.email,
           title,
           category,
           image,
@@ -23,18 +28,18 @@ const AddBlog = () => {
         console.log(blogData);
     
         // for server
-        // fetch(`http://localhost:5000/allblogs`, {
-        //   method: "POST",
-        //   headers: {
-        //     "Content-Type": "application/json",
-        //   },
-        //   body: JSON.stringify(myData),
-        // })
-        //   .then((res) => res.json())
-        //   .then((data) => {
-        //     console.log(data);
-        //     alert('added succesfully')
-        //   });
+        fetch(`http://localhost:5000/allblogs`, {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(blogData),
+        })
+          .then((res) => res.json())
+          .then((data) => {
+            console.log(data);
+            alert('added succesfully')
+          });
       };
 
 
@@ -67,7 +72,8 @@ const AddBlog = () => {
                 <option value="research">Research</option>
                 <option value="technology">Technology</option>
                 <option value="science">Science</option>
-                <option value="book">Books</option>
+                <option value="book">Book</option>
+                <option value="food">Food</option>
               </select>
             </div>
             <div className="form-control w-1/2 ">

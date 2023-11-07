@@ -1,6 +1,37 @@
+// import { useContext } from "react";
+// import { AuthContext } from "../../Providers/AuthProvider";
+
 /* eslint-disable react/prop-types */
 const AllBlogsCard = ({ allBlog }) => {
-    const { title, category } = allBlog;
+    // eslint-disable-next-line no-unused-vars
+    const {_id, title, category, image, short_description, details } = allBlog;
+    // const { user } = useContext(AuthContext);
+
+    const handleWishlist = () => {
+        console.log('clicked')
+        // const wish = {
+        //   email: user?.email,
+        //   _id,
+        //   title,
+        //   category,
+        //   image,
+        //   short_description,
+        //   details
+          
+        // }
+
+        fetch('http://localhost:5000/wishlist',{
+          method: 'POST',
+          headers: {
+            'content-type': 'application/json'
+          },
+          body: JSON.stringify(allBlog)
+        })
+        .then(res => res.json())
+        .then(data => {
+          console.log(data)
+        })
+    }
   
     return (
       <div>
@@ -16,7 +47,7 @@ const AllBlogsCard = ({ allBlog }) => {
             <p>Description: If a dog chews shoes whose shoes does he choose?</p>
             <div className="card-actions justify-end">
               <button className="btn btn-outline">Details</button>
-              <button className="btn btn-outline">Wishlist</button>
+              <button onClick={handleWishlist} className="btn btn-outline">Wishlist</button>
             </div>
           </div>
         </div>

@@ -3,7 +3,7 @@ import RecentCard from "./RecentCard";
 
 const Recent = () => {
 
-  const [blogs, setBlogs] = useState([]);
+  const [blogs, setBlogs] = useState([]); 
 
     useEffect(() => {
         fetch('http://localhost:5000/recentblogs')
