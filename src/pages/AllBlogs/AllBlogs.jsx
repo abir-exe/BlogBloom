@@ -1,7 +1,6 @@
 import { useContext, useEffect, useState } from "react";
 import AllBlogsCard from "./AllBlogsCard";
 import { AuthContext } from "../../Providers/AuthProvider";
-
 // import LoadingSkeleton from "./LoadingSkeleton";
 
 // import Skeleton from "react-loading-skeleton";

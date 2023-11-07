@@ -1,6 +1,8 @@
 // import { useContext } from "react";
 // import { AuthContext } from "../../Providers/AuthProvider";
 
+import { PhotoProvider, PhotoView } from "react-photo-view";
+
 /* eslint-disable react/prop-types */
 const AllBlogsCard = ({ allBlog }) => {
     // eslint-disable-next-line no-unused-vars
@@ -35,9 +37,12 @@ const AllBlogsCard = ({ allBlog }) => {
   
     return (
       <div>
+          <PhotoProvider>
         <div className="card h-96 bg-base-100 shadow-xl">
           <figure>
+          <PhotoView>
             <img src="https://i.ibb.co/hBw19FZ/s5.jpg" alt="Shoes" />
+            </PhotoView>
           </figure>
           <div className="card-body">
             <div className="flex items-center justify-between ">
@@ -51,6 +56,7 @@ const AllBlogsCard = ({ allBlog }) => {
             </div>
           </div>
         </div>
+        </PhotoProvider>
       </div>
     );
   };
