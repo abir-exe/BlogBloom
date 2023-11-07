@@ -9,6 +9,7 @@ const AddBlog = () => {
         const image = form.image.value;
         const short_description = form.description.value;
         const details = form.details.value;
+        const date = form.date.value;
         
     
         const blogData = {
@@ -16,7 +17,8 @@ const AddBlog = () => {
           category,
           image,
           short_description,
-          details
+          details,
+          date
         };
         console.log(blogData);
     
@@ -54,18 +56,34 @@ const AddBlog = () => {
                 required
               />
             </div>
+            <div className="flex justify-between gap-5">
             <div className="form-control w-1/2 ">
               {/* categories */}
               <label className="label">
               <label className="label-text">Choose a category:</label>
               </label>
-              <select name="category" className="py-1">
+              <select name="category" className="py-3 rounded-xl px-2 border">
                 <option value="travel">Travel</option>
                 <option value="research">Research</option>
                 <option value="technology">Technology</option>
                 <option value="science">Science</option>
                 <option value="book">Books</option>
               </select>
+            </div>
+            <div className="form-control w-1/2 ">
+              {/* date */}
+              <label className="label">
+              <label className="label-text">Date:</label>
+              </label>
+              <input
+                type="date"
+                name="date"
+                placeholder="Date"
+                className="input input-bordered"
+                required
+              />
+              
+            </div>
             </div>
             <div className="form-control">
               <label className="label">

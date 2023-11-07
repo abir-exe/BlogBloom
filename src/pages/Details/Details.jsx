@@ -1,9 +1,28 @@
 import { useLoaderData } from "react-router-dom";
 
 const Details = () => {
+  const handleComment = async (e) => {
+    e.preventDefault();
+
+    const form = e.target;
+    const name = form.name.value;
+    const email = form.email.value;
+    const image = form.image.value;
+    const comment = form.comment.value;
+
+    const commentData = {
+      blog: _id,
+      name,
+      email,
+      image,
+      comment,
+    };
+    console.log(commentData);
+  };
+
   const blogDetails = useLoaderData();
   //   console.log(details);
-  const { title, category, details, short_description } = blogDetails;
+  const { _id, title, category, details, short_description } = blogDetails;
 
   return (
     <div>
@@ -21,67 +40,68 @@ const Details = () => {
             </p>
             <p className="py-6">Details: {details}</p>
             <div className=" flex justify-end">
-            <button className="btn btn-outline">Update</button>
+              <button className="btn btn-outline">Update</button>
             </div>
           </div>
         </div>
       </div>
       {/* <!-- input Fields  --> */}
       <h2 className="text-4xl font-bold text-center my-10">Comment Here</h2>
-      <form className="ml-5 border px-20 py-10">
+      <form onSubmit={handleComment} className="ml-5 border px-20 py-10">
         {/* <!-- field1  --> */}
         <div className="flex justify-between gap-5">
-        <div className="form-control w-full max-w-xl">
-          <label className="label">
-            <span className="label-text">
-              Name <span className="text-red-600 text-xl font-bold">*</span>
-            </span>
-            <span className="label-text-alt"></span>
-          </label>
-          <input
-            name="Name"
-            type="text"
-            placeholder="Your Name"
-            className="input input-bordered w-full max-w-xl"
-            maxLength={256}
-            required
-          />
-          <label className="label">
-            <span className="label-text-alt"></span>
-            <span className="label-text-alt"></span>
-          </label>
+          <div className="form-control w-full max-w-xl">
+            <label className="label">
+              <span className="label-text">
+                Name <span className="text-red-600 text-xl font-bold">*</span>
+              </span>
+              <span className="label-text-alt"></span>
+            </label>
+            <input
+              name="name"
+              type="text"
+              placeholder="Your Name"
+              className="input input-bordered w-full max-w-xl"
+              maxLength={256}
+              required
+            />
+            <label className="label">
+              <span className="label-text-alt"></span>
+              <span className="label-text-alt"></span>
+            </label>
+          </div>
+          <div className="form-control w-full max-w-xl">
+            <label className="label">
+              <span className="label-text">
+                Email <span className="text-red-600 text-xl font-bold">*</span>
+              </span>
+              <span className="label-text-alt"></span>
+            </label>
+            <input
+              name="email"
+              type="email"
+              placeholder="Your Email"
+              className="input input-bordered w-full max-w-xl"
+              maxLength={256}
+              required
+            />
+            <label className="label">
+              <span className="label-text-alt"></span>
+              <span className="label-text-alt"></span>
+            </label>
+          </div>
         </div>
         <div className="form-control w-full max-w-xl">
           <label className="label">
             <span className="label-text">
-              Email <span className="text-red-600 text-xl font-bold">*</span>
+              Photo URL{" "}
+              <span className="text-red-600 text-xl font-bold">*</span>
             </span>
             <span className="label-text-alt"></span>
           </label>
           <input
-            name="Email"
-            type="email"
-            placeholder="Your Email"
-            className="input input-bordered w-full max-w-xl"
-            maxLength={256}
-            required
-          />
-          <label className="label">
-            <span className="label-text-alt"></span>
-            <span className="label-text-alt"></span>
-          </label>
-        </div>
-        </div>
-        <div className="form-control w-full max-w-xl">
-          <label className="label">
-            <span className="label-text">
-              Photo URL <span className="text-red-600 text-xl font-bold">*</span>
-            </span>
-            <span className="label-text-alt"></span>
-          </label>
-          <input
-            name="photo"
-            placeholder="Photo URL"
+            name="image"
+            placeholder="Image URL"
             className="input input-bordered w-full max-w-xl "
             required
           />
