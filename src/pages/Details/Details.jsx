@@ -9,19 +9,14 @@ const Details = () => {
     e.preventDefault();
 
     const form = e.target;
-    const name = form.name.value;
-    const email = form.email.value;
-    const image = form.image.value;
     const comment = form.comment.value;
 
     const commentData = {
-      writer_name: user?.displayName,
-      writer_image: user?.photoURL,
+      name: user?.displayName,
+      image: user?.photoURL,
+      email: user?.email,
       blog_id: _id,
       blog: title,
-      name,
-      email,
-      image,
       comment,
     };
     console.log(commentData);
@@ -36,6 +31,9 @@ const Details = () => {
     .then(res => res.json())
     .then(data => {
         console.log(data);
+        if(data.insertedId) {
+            alert('Comment Submitted')
+        }
     })
 
 
@@ -67,70 +65,9 @@ const Details = () => {
         </div>
       </div>
       {/* <!-- input Fields  --> */}
+      <form onSubmit={handleComment} className="m-10 border px-20 pb-10">
       <h2 className="text-4xl font-bold text-center my-10">Comment Here</h2>
-      <form onSubmit={handleComment} className="ml-5 border px-20 py-10">
         {/* <!-- field1  --> */}
-        <div className="flex justify-between gap-5">
-          <div className="form-control w-full max-w-xl">
-            <label className="label">
-              <span className="label-text">
-                Name <span className="text-red-600 text-xl font-bold">*</span>
-              </span>
-              <span className="label-text-alt"></span>
-            </label>
-            <input
-              name="name"
-              type="text"
-              placeholder="Your Name"
-              className="input input-bordered w-full max-w-xl"
-              maxLength={256}
-              required
-            />
-            <label className="label">
-              <span className="label-text-alt"></span>
-              <span className="label-text-alt"></span>
-            </label>
-          </div>
-          <div className="form-control w-full max-w-xl">
-            <label className="label">
-              <span className="label-text">
-                Email <span className="text-red-600 text-xl font-bold">*</span>
-              </span>
-              <span className="label-text-alt"></span>
-            </label>
-            <input
-              name="email"
-              type="email"
-              placeholder="Your Email"
-              className="input input-bordered w-full max-w-xl"
-              maxLength={256}
-              required
-            />
-            <label className="label">
-              <span className="label-text-alt"></span>
-              <span className="label-text-alt"></span>
-            </label>
-          </div>
-        </div>
-        <div className="form-control w-full max-w-xl">
-          <label className="label">
-            <span className="label-text">
-              Photo URL{" "}
-              <span className="text-red-600 text-xl font-bold">*</span>
-            </span>
-            <span className="label-text-alt"></span>
-          </label>
-          <input
-            name="image"
-            placeholder="Image URL"
-            className="input input-bordered w-full max-w-xl "
-            required
-          />
-          <label className="label">
-            <span className="label-text-alt"></span>
-            <span className="label-text-alt"></span>
-          </label>
-        </div>
         <div className="form-control w-full max-w-xl">
           <label className="label">
             <span className="label-text">
