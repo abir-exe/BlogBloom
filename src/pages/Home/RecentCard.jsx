@@ -1,6 +1,8 @@
+import { Link } from "react-router-dom";
+
 /* eslint-disable react/prop-types */
 const RecentCard = ({ blog }) => {
-  const {  title, category } = blog;
+  const { _id, title, category } = blog;
 
   return (
     <div>
@@ -15,7 +17,7 @@ const RecentCard = ({ blog }) => {
           </div>
           <p>Description: If a dog chews shoes whose shoes does he choose?</p>
           <div className="card-actions justify-end">
-            <button className="btn btn-outline">Details</button>
+            <Link to={`/details/${_id}`}><button className="btn btn-outline">Details</button></Link>
             <button className="btn btn-outline">Wishlist</button>
           </div>
         </div>
