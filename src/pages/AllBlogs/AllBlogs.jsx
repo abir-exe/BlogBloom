@@ -1,33 +1,57 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import AllBlogsCard from "./AllBlogsCard";
+import { AuthContext } from "../../Providers/AuthProvider";
 
+// import LoadingSkeleton from "./LoadingSkeleton";
+
+// import Skeleton from "react-loading-skeleton";
+import "react-loading-skeleton/dist/skeleton.css";
+import LoadingSkeleton from "./LoadingSkeleton";
 
 const AllBlogs = () => {
+  const [allBlogs, setAllBlogs] = useState([]);
+  const { loading } = useContext(AuthContext);
 
-    const [allBlogs, setAllBlogs] = useState([]);
+  useEffect(() => {
+    fetch("http://localhost:5000/allblogs")
+      .then((res) => res.json())
+      .then((data) => setAllBlogs(data));
+  }, []);
 
-    useEffect(() => {
-        fetch('http://localhost:5000/allblogs')
-        .then(res => res.json())
-        .then(data => setAllBlogs(data))
-    }, [])
-
-    return (
-        <div>
-            <div>
+  return (
+    <div>
+      <div>
         <div>
           <h2 className="text-4xl text-center mb-10"></h2>
         </div>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 mb-5 px-10">
-           
-        {
-          allBlogs.map(allBlog => <AllBlogsCard key={allBlog._id} allBlog={allBlog}></AllBlogsCard>)
-        }
-            
+        <div>
+          {loading ? (
+            <div>
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 mb-5 px-10">
+                {allBlogs.map((allBlog) => (
+                  <LoadingSkeleton
+                    key={allBlog._id}
+                    allBlog={allBlog}
+                  ></LoadingSkeleton>
+                ))}
+              </div>
+            </div>
+          ) : (
+            <div>
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 mb-5 px-10">
+                {allBlogs.map((allBlog) => (
+                  <AllBlogsCard
+                    key={allBlog._id}
+                    allBlog={allBlog}
+                  ></AllBlogsCard>
+                ))}
+              </div>
+            </div>
+          )}
         </div>
       </div>
-        </div>
-    );
+    </div>
+  );
 };
 
 export default AllBlogs;

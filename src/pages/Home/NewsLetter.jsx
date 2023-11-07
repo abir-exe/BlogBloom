@@ -1,14 +1,14 @@
 
-import { useState } from "react";
+
 import toast from "react-hot-toast";
 
 const NewsLetter = () => {
 
-  const [rotate, setRotate] = useState(false);
+  
 
     const handleSubmit = () => {
       toast.success('Successfully toasted!')
-        setRotate(!rotate);
+        
         
     }
 

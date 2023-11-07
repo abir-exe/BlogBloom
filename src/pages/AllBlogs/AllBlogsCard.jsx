@@ -19,7 +19,7 @@ const AllBlogsCard = ({ allBlog }) => {
         //   details
           
         // }
-
+ 
         fetch('http://localhost:5000/wishlist',{
           method: 'POST',
           headers: {
