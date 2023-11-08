@@ -1,4 +1,9 @@
+import { useLoaderData } from "react-router-dom";
+
 const UpdateBlog = () => {
+
+  const previousBlog = useLoaderData();
+  console.log(previousBlog);
 
     const handleAddBlog = async (e) => {
         e.preventDefault();

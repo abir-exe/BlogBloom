@@ -1,6 +1,7 @@
 import { useContext } from "react";
-import { useLoaderData } from "react-router-dom";
+import { Link, useLoaderData } from "react-router-dom";
 import { AuthContext } from "../../Providers/AuthProvider";
+import toast from "react-hot-toast";
 
 const Details = () => {
   const { user } = useContext(AuthContext);
@@ -32,7 +33,7 @@ const Details = () => {
     .then(data => {
         console.log(data);
         if(data.insertedId) {
-            alert('Comment Submitted')
+          toast.success('Comment Submitted')
         }
     })
 
@@ -41,7 +42,7 @@ const Details = () => {
 
   const blogDetails = useLoaderData();
   //   console.log(details);
-  const { _id, title, category, details, short_description } = blogDetails;
+  const { _id, title, category, details, short_description , email } = blogDetails;
 
   return (
     <div>
@@ -59,13 +60,42 @@ const Details = () => {
             </p>
             <p className="py-6">Details: {details}</p>
             <div className=" flex justify-end">
-              <button className="btn btn-outline">Update</button>
+              <Link to={`/updateblog/${_id}`}><button className="btn btn-outline">Update</button></Link>
             </div>
           </div>
         </div>
       </div>
       {/* <!-- input Fields  --> */}
-      <form onSubmit={handleComment} className="m-10 border px-20 pb-10">
+      {
+        (user?.email === email ? <>
+        <form onSubmit={handleComment} className="m-10 border px-20 pb-10">
+      <h2 className="text-4xl font-bold text-center my-10">Comment Here</h2>
+        {/* <!-- field1  --> */}
+        <div className="form-control w-full max-w-xl">
+          <label className="label">
+            <span className="label-text">
+              User cannot comment on his own blog <span className="text-red-600 text-xl font-bold">*</span>
+            </span>
+            <span className="label-text-alt"></span>
+          </label>
+          <textarea
+            name="comment"
+            type="text"
+            placeholder="user cannot comment on his own blog"
+            className="textarea textarea-bordered textarea-lg w-full max-w-full"
+            required
+          ></textarea>
+          <label className="label">
+            <span className="label-text-alt"></span>
+            <span className="label-text-alt"></span>
+          </label>
+        </div>
+        <button className="  btn btn-outline px-24 btn-disabled">Comment</button>
+      </form>
+        </> 
+        :
+         <>
+        <form onSubmit={handleComment} className="m-10 border px-20 pb-10">
       <h2 className="text-4xl font-bold text-center my-10">Comment Here</h2>
         {/* <!-- field1  --> */}
         <div className="form-control w-full max-w-xl">
@@ -89,6 +119,9 @@ const Details = () => {
         </div>
         <button className="  btn btn-outline px-24">Comment</button>
       </form>
+        </>)
+      }
+      
     </div>
   );
 };
