@@ -30,9 +30,9 @@ const Photograph = () => {
       onSwiper={(swiper) => console.log(swiper)}
     >
       <SwiperSlide><img src="https://i.ibb.co/ZXcQJs0/japan.jpg" style={{width: "100%" }} alt="" /></SwiperSlide>
-      <SwiperSlide><img src="https://i.ibb.co/zmtntG8/teamwork.jpg" style={{width: "100%"  }} alt="" /></SwiperSlide>
-      <SwiperSlide><img src="https://i.ibb.co/jHYFcYj/build.jpg" style={{width: "100%"  }} alt="" /></SwiperSlide>
-      <SwiperSlide><img src="https://i.ibb.co/zmtntG8/teamwork.jpg" style={{width: "100%"  }} alt="" /></SwiperSlide>
+      <SwiperSlide><img src="https://i.ibb.co/YBMy1hK/i-Stocksolarseven-1055891344-696x392.jpg" style={{width: "100%"  }} alt="" /></SwiperSlide>
+      <SwiperSlide><img src="https://i.ibb.co/fqg4YcG/ai-banner-800x450-tcm158-7204059-tcm158-6286607-32.jpg" style={{width: "100%"  }} alt="" /></SwiperSlide>
+      <SwiperSlide><img src="https://i.ibb.co/42PGbgX/l-intro-1643403830.jpg" style={{width: "100%"  }} alt="" /></SwiperSlide>
       
     </Swiper>
         </div>
