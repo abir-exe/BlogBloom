@@ -1,8 +1,10 @@
 // import { useContext } from "react";
 // import { AuthContext } from "../../Providers/AuthProvider";
 
+import toast from "react-hot-toast";
 import { PhotoProvider, PhotoView } from "react-photo-view";
 import 'react-photo-view/dist/react-photo-view.css';
+import { Link } from "react-router-dom";
 
 
 /* eslint-disable react/prop-types */
@@ -34,6 +36,7 @@ const AllBlogsCard = ({ allBlog }) => {
         .then(res => res.json())
         .then(data => {
           console.log(data)
+          toast.success('added to wishlist')
         })
     }
   
@@ -53,8 +56,9 @@ const AllBlogsCard = ({ allBlog }) => {
             </div>
             <p>Description: {short_description}</p>
             <div className="card-actions justify-end">
-              <button className="btn btn-outline">Details</button>
-              <button onClick={handleWishlist} className="btn btn-outline">Wishlist</button>
+              <Link to={`/details/${_id}`}> 
+              <button className="btn btn-outline">Details</button> </Link>
+              <button onClick={handleWishlist} className="btn btn-outline">Wishlist</button> 
             </div>
           </div>
         </div>

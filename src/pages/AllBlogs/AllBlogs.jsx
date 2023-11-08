@@ -11,20 +11,31 @@ const AllBlogs = () => {
   const [allBlogs, setAllBlogs] = useState([]);
   const { loading } = useContext(AuthContext);
 
-  const [searchText, setSearchText] = useState("");
+  // const [searchText, setSearchText] = useState("");
 
-  const handleSearchInputChange = (e) => {
-    setSearchText(e.target.value);
-  };
-  
+  // const handleSearchInputChange = (e) => {
+  //   setSearchText(e.target.value);
+  // };
 
-  const handleSearch = () => {
-    fetch(`/allblogs/search/${searchText}`)
+  // const handleSearch = () => {
+  //   fetch(`/allblogs/search/${searchText}`)
+  //   .then(res => res.json())
+  //   .then(data => setAllBlogs(data))
+  // }
+
+  const handleSearch = (e) => {
+    e.preventDefault();
+    const form = e.target;
+    const search = form.search.value;
+    // setSearchText(search)
+    console.log(search);
+
+    fetch(``, {
+    })
     .then(res => res.json())
-    .then(data => setAllBlogs(data))
-  }
-
-
+    .then(data => console.log(data))
+  }; 
+  // console.log(searchText);
 
   useEffect(() => {
     fetch("http://localhost:5000/allblogs")
@@ -41,8 +52,6 @@ const AllBlogs = () => {
         <div>
           {loading ? (
             <div>
-          
-              
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 mb-5 px-10">
                 {allBlogs.map((allBlog) => (
                   <LoadingSkeleton
@@ -54,23 +63,24 @@ const AllBlogs = () => {
             </div>
           ) : (
             <div>
-              <div >
-        <form className="flex justify-center my-6">
-        <input
-        type="text"
-        placeholder="Search by Title"
-        value={searchText}
-        onChange={handleSearchInputChange}
-          className="input input-bordered input-primary w-full max-w-xs"
-        />
-        <input
-        onClick={handleSearch}
-          type="submit"
-          value="Search"
-          className="rounded-lg bg-indigo-500 px-10 ms-2 font-semibold text-white cursor-pointer"
-        />
-        </form>
-      </div>
+              <div>
+                <form
+                  onSubmit={handleSearch}
+                  className="flex justify-center my-6"
+                >
+                  <input
+                    type="text"
+                    placeholder="Search by Title"
+                    name="search"
+                    className="input input-bordered input-primary w-full max-w-xs"
+                  />
+                  <input
+                    type="submit"
+                    value="Search"
+                    className="rounded-lg bg-indigo-500 px-10 ms-2 font-semibold text-white cursor-pointer"
+                  />
+                </form>
+              </div>
 
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 mb-5 px-10">
                 {allBlogs.map((allBlog) => (

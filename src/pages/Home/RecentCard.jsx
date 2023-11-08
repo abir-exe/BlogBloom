@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
+import toast from "react-hot-toast";
 
 /* eslint-disable react/prop-types */
 const RecentCard = ({ blog }) => {
@@ -26,6 +27,33 @@ const RecentCard = ({ blog }) => {
     },
   };
 
+  const handleWishlist = () => {
+    console.log('clicked')
+    // const wish = {
+    //   email: user?.email,
+    //   _id,
+    //   title,
+    //   category,
+    //   image,
+    //   short_description,
+    //   details
+      
+    // }
+
+    fetch('http://localhost:5000/wishlist',{
+      method: 'POST',
+      headers: {
+        'content-type': 'application/json'
+      },
+      body: JSON.stringify(blog)
+    })
+    .then(res => res.json())
+    .then(data => {
+      console.log(data)
+      toast.success('added to wishlist')
+    })
+}
+
   return (
     <div>
       <motion.div variants={divVariants}
@@ -51,11 +79,12 @@ const RecentCard = ({ blog }) => {
                 Details
               </motion.button>
             </Link>
-            <motion.button
+            <motion.button 
               variants={buttonVariants}
               initial="rest"
               whileHover="hover"
               className="btn btn-outline"
+              onClick={handleWishlist}
             >
               Wishlist
             </motion.button>
