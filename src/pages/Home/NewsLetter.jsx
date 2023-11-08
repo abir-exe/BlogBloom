@@ -7,7 +7,7 @@ const NewsLetter = () => {
   
 
     const handleSubmit = () => {
-      toast.success('Successfully toasted!')
+      toast.success('Subscription Successful!')
         
         
     }
