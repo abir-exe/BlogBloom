@@ -19,7 +19,7 @@ const AllBlogs = () => {
   
 
   const handleSearch = () => {
-    fetch(`/allblogs?search=${searchText}`)
+    fetch(`/allblogs/search/${searchText}`)
     .then(res => res.json())
     .then(data => setAllBlogs(data))
   }
@@ -54,7 +54,8 @@ const AllBlogs = () => {
             </div>
           ) : (
             <div>
-              <div className="flex justify-center my-6">
+              <div >
+        <form className="flex justify-center my-6">
         <input
         type="text"
         placeholder="Search by Title"
@@ -68,6 +69,7 @@ const AllBlogs = () => {
           value="Search"
           className="rounded-lg bg-indigo-500 px-10 ms-2 font-semibold text-white cursor-pointer"
         />
+        </form>
       </div>
 
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 mb-5 px-10">

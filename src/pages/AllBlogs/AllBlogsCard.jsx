@@ -51,7 +51,7 @@ const AllBlogsCard = ({ allBlog }) => {
               <h2 className="card-title">{title}</h2>
               <p className="font-bold text-sm ml-24">Category: {category}</p>
             </div>
-            <p>Description: If a dog chews shoes whose shoes does he choose?</p>
+            <p>Description: {short_description}</p>
             <div className="card-actions justify-end">
               <button className="btn btn-outline">Details</button>
               <button onClick={handleWishlist} className="btn btn-outline">Wishlist</button>

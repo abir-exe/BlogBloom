@@ -1,11 +1,15 @@
-import { useLoaderData } from "react-router-dom";
+import toast from "react-hot-toast";
+import { useLoaderData, useParams } from "react-router-dom";
 
 const UpdateBlog = () => {
+
+  const {id} = useParams();
+  console.log(id)
 
   const previousBlog = useLoaderData();
   console.log(previousBlog);
 
-    const handleAddBlog = async (e) => {
+    const handleUpdateBlog = async (e) => {
         e.preventDefault();
     
         const form = e.target;
@@ -26,18 +30,18 @@ const UpdateBlog = () => {
         console.log(blogData);
     
         // for server
-        // fetch(`http://localhost:5000/allblogs`, {
-        //   method: "POST",
-        //   headers: {
-        //     "Content-Type": "application/json",
-        //   },
-        //   body: JSON.stringify(myData),
-        // })
-        //   .then((res) => res.json())
-        //   .then((data) => {
-        //     console.log(data);
-        //     alert('added succesfully')
-        //   });
+        fetch(`http://localhost:5000/allblogs/${id}`, {
+          method: "PUT",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(blogData),
+        })
+          .then((res) => res.json())
+          .then((data) => {
+            console.log(data);
+            toast.success('updated succesfully')
+          });
       };
 
 
@@ -46,12 +50,13 @@ const UpdateBlog = () => {
       <div>
         <div className="w-3/6 mx-auto h-full">
           <h2 className="text-3xl text-center mt-10 mb-5">Update Blog</h2>
-          <form onSubmit={handleAddBlog} className="card-body mb-10 border bg-[#f6f8fa]">
+          <form onSubmit={handleUpdateBlog} className="card-body mb-10 border bg-[#f6f8fa]">
             <div className="form-control">
               <label className="label">
                 <span className="label-text">Blog Title</span>
               </label>
               <input
+              defaultValue={previousBlog.title}
                 type="text"
                 name="title"
                 placeholder="Name"
