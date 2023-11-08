@@ -2,6 +2,7 @@ import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../../Providers/AuthProvider";
 import WishlistCard from "./WishlistCard";
 import WishSkeleton from "./WishSkeleton";
+import toast from "react-hot-toast";
 
 
 const Wishlist = () => {
@@ -16,7 +17,8 @@ const Wishlist = () => {
         .then(data => setWishlistBlogs(data))
     }, [url])
 
-    const handleDelete = id => {
+    const handleDelete = async (id) => {
+      console.log(id)
         const proceed = confirm('Are you sure you want to delete?');
         if(proceed) {
             fetch(`http://localhost:5000/wishlist/${id}`, {
@@ -26,7 +28,7 @@ const Wishlist = () => {
             .then(data => {
                 console.log(data);
                 if(data.deletedCount>0){
-                    alert('deleted successfully');
+                    toast.success('deleted successfully');
                     const remaining = wishlistBlogs.filter(wishlistBlogs => wishlistBlogs._id !== id)
                     setWishlistBlogs(remaining);
                 }
