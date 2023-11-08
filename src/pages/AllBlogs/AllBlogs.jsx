@@ -9,6 +9,7 @@ import LoadingSkeleton from "./LoadingSkeleton";
 
 const AllBlogs = () => {
   const [allBlogs, setAllBlogs] = useState([]);
+  const [match, setMatch] = useState("");
   const { loading } = useContext(AuthContext);
 
   // const [searchText, setSearchText] = useState("");
@@ -43,8 +44,21 @@ const AllBlogs = () => {
       .then((data) => setAllBlogs(data));
   }, []);
 
+  const handleChange = e => {
+    const form = e.target;
+    
+    console.log( form.value)
+    setMatch(form.value);
+
+    
+  }
+
+console.log(match)
+{match === allBlogs.title ? <>matched</> : <>not matched</>}
+
   return (
     <div>
+      
       <div>
         <div>
           <h2 className="text-4xl text-center mb-10"></h2>
@@ -65,13 +79,14 @@ const AllBlogs = () => {
             <div>
               <div>
                 <form
-                  onSubmit={handleSearch}
+                  
+                  onChange={handleChange}
                   className="flex justify-center my-6"
                 >
                   <input
                     type="text"
                     placeholder="Search by Title"
-                    name="search"
+                    name="searchtext"
                     className="input input-bordered input-primary w-full max-w-xs"
                   />
                   <input

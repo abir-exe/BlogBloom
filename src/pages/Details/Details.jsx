@@ -1,10 +1,12 @@
-import { useContext } from "react";
+import { useContext, useEffect, useState } from "react";
 import { Link, useLoaderData } from "react-router-dom";
 import { AuthContext } from "../../Providers/AuthProvider";
 import toast from "react-hot-toast";
 
+
 const Details = () => {
   const { user } = useContext(AuthContext);
+  const [comments, setComments] = useState([]);
 
   const handleComment = async (e) => {
     e.preventDefault();
@@ -39,6 +41,14 @@ const Details = () => {
 
 
   };
+
+  useEffect(() => {
+    fetch("https://blog-bloom-server-mu.vercel.app/comments")
+      .then((res) => res.json())
+      .then((data) => setComments(data));
+  }, []);
+
+  console.log(comments);
 
   const blogDetails = useLoaderData();
   //   console.log(details);
@@ -79,6 +89,7 @@ const Details = () => {
       <h2 className="text-4xl font-bold text-center my-10">Comment Here</h2>
         {/* <!-- field1  --> */}
         <div className="form-control w-full max-w-xl">
+          <h2>total comment : {comments.length}</h2>
           <label className="label">
             <span className="label-text">
               User cannot comment on his own blog <span className="text-red-600 text-xl font-bold">*</span>
@@ -99,6 +110,14 @@ const Details = () => {
         </div>
         <button className="  btn btn-outline px-24 btn-disabled">Comment</button>
       </form>
+      <div>
+        <h1 className="font-bold">comments are here:</h1>
+        <div>
+        {
+        comments.map(comment => <div key={comment._id}>{comment.comment}</div>)
+      }
+        </div>
+      </div>
         </> 
         :
          <>
@@ -106,6 +125,7 @@ const Details = () => {
       <h2 className="text-4xl font-bold text-center my-10">Comment Here</h2>
         {/* <!-- field1  --> */}
         <div className="form-control w-full max-w-xl">
+        <h2>total comment : {comments.length}</h2>
           <label className="label">
             <span className="label-text">
               Comment <span className="text-red-600 text-xl font-bold">*</span>
@@ -126,6 +146,14 @@ const Details = () => {
         </div>
         <button className="  btn btn-outline px-24">Comment</button>
       </form>
+      <div>
+        <h1 className="font-bold">comments are here:</h1>
+        <div>
+        {
+        comments.map(comment => <div key={comment._id}>{comment.comment}</div>)
+      }
+        </div>
+      </div>
         </>)
       }
       
