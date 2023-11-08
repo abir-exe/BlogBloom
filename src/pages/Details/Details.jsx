@@ -42,14 +42,14 @@ const Details = () => {
 
   const blogDetails = useLoaderData();
   //   console.log(details);
-  const { _id, title, category, details, short_description , email } = blogDetails;
+  const { _id, title, category, image, details, short_description , email } = blogDetails;
 
   return (
     <div>
       <div className="hero min-h-full px-5 py-5 bg-base-200 mt-5 rounded-lg">
         <div className="hero-content flex-col lg:flex-row gap-10">
           <img
-            src="https://i.ibb.co/hBw19FZ/s5.jpg"
+            src={image}
             className="max-w-sm rounded-lg shadow-2xl"
           />
           <div className="space-y-3">

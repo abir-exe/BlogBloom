@@ -46,7 +46,7 @@ const AllBlogsCard = ({ allBlog }) => {
         <div className="card h-96 bg-base-100 shadow-xl">
           <figure>
           <PhotoView src="https://i.ibb.co/hBw19FZ/s5.jpg">
-            <img src="https://i.ibb.co/hBw19FZ/s5.jpg" alt="Shoes" />
+            <img src={image} alt="Shoes" />
             </PhotoView>
           </figure>
           <div className="card-body">

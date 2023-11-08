@@ -36,7 +36,7 @@ const WishlistCard = ({wishlistBlog, handleDelete}) => {
         </td>
         <td>{details}</td>
         <th className="  space-x-2">
-          <button className="btn btn-outline btn-xs">Details</button>
+          
           <button onClick={() => handleDelete(_id)} className="btn btn-outline btn-xs">Remove</button>
         </th>
       </tr>

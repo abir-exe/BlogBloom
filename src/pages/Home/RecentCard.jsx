@@ -4,7 +4,7 @@ import toast from "react-hot-toast";
 
 /* eslint-disable react/prop-types */
 const RecentCard = ({ blog }) => {
-  const { _id, title, category } = blog;
+  const { _id, title, category, image } = blog;
 
   const buttonVariants = {
     rest: {
@@ -60,7 +60,7 @@ const RecentCard = ({ blog }) => {
               initial="rest"
               whileHover="hover" className="card h-96 bg-base-100 shadow-xl">
         <figure>
-          <img src="https://i.ibb.co/hBw19FZ/s5.jpg" alt="Shoes" />
+          <img src={image} alt="Shoes" />
         </figure>
         <div className="card-body">
           <div className="flex items-center justify-between ">
