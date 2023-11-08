@@ -6,7 +6,7 @@ const Recent = () => {
   const [blogs, setBlogs] = useState([]); 
 
     useEffect(() => {
-        fetch('http://localhost:5000/recentblogs')
+        fetch('https://blog-bloom-server-mu.vercel.app/recentblogs')
         .then(res => res.json())
         .then(data => setBlogs(data))
     }, [])

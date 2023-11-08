@@ -29,7 +29,7 @@ const AddBlog = () => {
         console.log(blogData);
     
         // for server
-        fetch(`http://localhost:5000/allblogs`, {
+        fetch(`https://blog-bloom-server-mu.vercel.app/allblogs`, {
           method: "POST",
           headers: {
             "Content-Type": "application/json",

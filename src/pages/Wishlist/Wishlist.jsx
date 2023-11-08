@@ -10,7 +10,7 @@ const Wishlist = () => {
     const {user, loading} = useContext(AuthContext);
     const [wishlistBlogs, setWishlistBlogs] = useState([]);
 
-    const url = `http://localhost:5000/wishlist?email=${user?.email}`;
+    const url = `https://blog-bloom-server-mu.vercel.app/wishlist?email=${user?.email}`;
     useEffect(() => {
         fetch(url)
         .then(res => res.json())
@@ -21,7 +21,7 @@ const Wishlist = () => {
       console.log(id)
         const proceed = confirm('Are you sure you want to delete?');
         if(proceed) {
-            fetch(`http://localhost:5000/wishlist/${id}`, {
+            fetch(`https://blog-bloom-server-mu.vercel.app/wishlist/${id}`, {
                 method: 'DELETE'
             })
             .then(res => res.json())

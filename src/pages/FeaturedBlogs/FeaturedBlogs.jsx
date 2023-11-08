@@ -10,7 +10,7 @@ const FeaturedBlogs = () => {
   const [blogs, setBlogs] = useState([]);
 
   useEffect(() => {
-    fetch("http://localhost:5000/featuredblogs")
+    fetch("https://blog-bloom-server-mu.vercel.app/featuredblogs")
       .then((res) => res.json())
       .then((data) => setBlogs(data));
   }, []);

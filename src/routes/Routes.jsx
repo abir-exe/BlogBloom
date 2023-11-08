@@ -50,12 +50,12 @@ const router = createBrowserRouter([
         {
           path: '/details/:id',
           element: <PrivateRoute><Details></Details></PrivateRoute>,
-          loader: ({params}) => fetch(`http://localhost:5000/details/${params.id}`)
+          loader: ({params}) => fetch(`https://blog-bloom-server-mu.vercel.app/details/${params.id}`)
         },
         {
           path: '/updateblog/:id',
           element: <PrivateRoute><UpdateBlog></UpdateBlog></PrivateRoute>,
-          loader: ({params}) => fetch(`http://localhost:5000/allblogs/${params}`)
+          loader: ({params}) => fetch(`https://blog-bloom-server-mu.vercel.app/allblogs/${params}`)
         }
 
       ]

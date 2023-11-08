@@ -22,7 +22,7 @@ const Details = () => {
     };
     console.log(commentData);
 
-    fetch('http://localhost:5000/comments', {
+    fetch('https://blog-bloom-server-mu.vercel.app/comments', {
         method: "POST",
         headers: {
           "content-Type": "application/json",

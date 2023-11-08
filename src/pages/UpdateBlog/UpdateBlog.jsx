@@ -30,7 +30,7 @@ const UpdateBlog = () => {
         console.log(blogData);
     
         // for server
-        fetch(`http://localhost:5000/allblogs/${id}`, {
+        fetch(`https://blog-bloom-server-mu.vercel.app/allblogs/${id}`, {
           method: "PUT",
           headers: {
             "Content-Type": "application/json",

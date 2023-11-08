@@ -38,7 +38,7 @@ const AllBlogs = () => {
   // console.log(searchText);
 
   useEffect(() => {
-    fetch("http://localhost:5000/allblogs")
+    fetch("https://blog-bloom-server-mu.vercel.app/allblogs")
       .then((res) => res.json())
       .then((data) => setAllBlogs(data));
   }, []);

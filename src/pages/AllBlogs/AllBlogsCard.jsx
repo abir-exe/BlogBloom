@@ -26,7 +26,7 @@ const AllBlogsCard = ({ allBlog }) => {
           
         // }
  
-        fetch('http://localhost:5000/wishlist',{
+        fetch('https://blog-bloom-server-mu.vercel.app/wishlist',{
           method: 'POST',
           headers: {
             'content-type': 'application/json'
