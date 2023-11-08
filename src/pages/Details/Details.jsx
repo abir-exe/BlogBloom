@@ -60,7 +60,14 @@ const Details = () => {
             </p>
             <p className="py-6">Details: {details}</p>
             <div className=" flex justify-end">
-              <Link to={`/updateblog/${_id}`}><button className="btn btn-outline">Update</button></Link>
+              {
+                (user.email === email) ? 
+                
+                <Link to={`/updateblog/${_id}`}><button className="btn btn-outline">Update</button></Link>
+                :
+                <></>
+              }
+              
             </div>
           </div>
         </div>
